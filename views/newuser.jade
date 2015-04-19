@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	hi= title
+	form#formAddUser(name="adduser",method="post",action="/adduser")
+		input#inputName(type="text", placeholder="name", name="username")
+		br
+		input#inputMobilenumber(type="text", placeholder="mobile number", name="mobile_number")
+		br
+		input#inputEmail(type="text", placeholder="email", name="email")
+		br
+		button#btnSubmit(type="submit") submit
+		.col-md-6.col-md-offset-3
+		if (errors)
+			.alert.alert-danger
+			p= message
+			ul
+				each error in errors
+					li= error.msg
